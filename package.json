@@ -1,0 +1,25 @@
+{
+  "name": "scraperbts",
+  "version": "1.0.0",
+  "description": "BTS Light Stick Ver.4 stock monitor for Weverse Shop",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "check": "tsx src/index.ts --once"
+  },
+  "keywords": [
+    "weverse",
+    "bts",
+    "stock",
+    "scraper"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^25.5.0",
+    "cheerio": "^1.2.0",
+    "dotenv": "^17.3.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}

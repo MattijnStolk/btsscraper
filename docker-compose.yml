@@ -1,0 +1,6 @@
+services:
+  scraperbts:
+    build: .
+    container_name: bts-lightstick-monitor
+    restart: unless-stopped
+    env_file: .env
