@@ -1,0 +1,10 @@
+services:
+  scraperbts:
+    image: matinovic/scraperbotbts:latest
+    container_name: bts-lightstick-monitor
+    restart: unless-stopped
+    environment:
+      DISCORD_WEBHOOK_URL: "REPLACE_WITH_YOUR_DISCORD_WEBHOOK_URL"
+      # Optional overrides:
+      # CHECK_INTERVAL_MINUTES: "5"
+      # PRODUCT_URL: "https://shop.weverse.io/en/shop/USD/artists/2/sales/54189"

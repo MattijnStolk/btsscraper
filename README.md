@@ -139,3 +139,33 @@ Edit `.env` (if you use `docker compose` or a stack with `env_file`) or the cont
 - `PRODUCT_URL=https://shop.weverse.io/...` — different product page
 
 Then restart: `docker compose restart` or restart the container in Portainer.
+
+---
+
+## Deploying from a Prebuilt Image
+
+If you publish the image to Docker Hub, you can deploy this app in Portainer without copying the full project to your server.
+
+### Portainer stack file
+
+Use `portainer-stack.yml` from this repository as your stack template. It pulls:
+
+`matinovic/scraperbotbts:latest`
+
+Update `DISCORD_WEBHOOK_URL` before deploying, or replace it with a Portainer environment variable.
+
+### GitHub Actions auto-publish
+
+This repository includes `.github/workflows/docker-publish.yml`, which builds and pushes the image on every push to `main`.
+
+Before it can work, add these GitHub repository secrets:
+
+- `DOCKERHUB_USERNAME` — your Docker Hub username
+- `DOCKERHUB_TOKEN` — a Docker Hub access token with write access
+
+The workflow publishes:
+
+- `matinovic/scraperbotbts:latest`
+- `matinovic/scraperbotbts:sha-<commit>`
+
+If your repository is private, GitHub Actions free usage is limited by monthly minutes. For a small project like this, that is usually still fine unless you push very frequently.
